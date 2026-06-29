@@ -1,55 +1,55 @@
 package MiniProject;
 import java.util.*;
-abstract class VehicleService //abstract class
+abstract class VehicleService 
 {
 	String customername;  
 	String vehiclenumber;
 	String servicetype;
-	VehicleService(String customername,String vehiclenumber,String servicetype) //constructor
+	VehicleService(String customername,String vehiclenumber,String servicetype) 
 	{
 		this.customername=customername;
 		this.vehiclenumber=vehiclenumber;
 		this.servicetype=servicetype;
 	}
-	abstract double calculateServiceCharge(); //abstract method
-	    void displayServiceDetails() //concrete method
+	abstract double calculateServiceCharge(); 
+	    void displayServiceDetails() 
 	    {
-	    	System.out.println("customername: "+customername); //method display panna use agum
+	    	System.out.println("customername: "+customername); 
 	    	System.out.println("vehiclenumber: "+vehiclenumber);
 	    	System.out.println("servicetype: "+servicetype);
 	    	
 	    	}
 }
-class CarService extends VehicleService //child class1
+class CarService extends VehicleService 
 {
 	double sparePartsCost; //variable use pandrom
-	CarService(String customername,String vehiclenumber,String servicetype,double sparePartsCost)  //constructor
+	CarService(String customername,String vehiclenumber,String servicetype,double sparePartsCost)  
 	{
-		super(customername,vehiclenumber,servicetype);  //parent class members ah access panna use pandrom
-		this.sparePartsCost=sparePartsCost;  //this. use panna value confuse agama irukum
+		super(customername,vehiclenumber,servicetype); 
+		this.sparePartsCost=sparePartsCost; 
 	}
-	double calculateServiceCharge()  //abstract method la override pandrom
+	double calculateServiceCharge() 
 	{
-		double serviceCharge = 2000+sparePartsCost; //calculate the charge
+		double serviceCharge = 2000+sparePartsCost;
 		
-		displayServiceDetails();   //display use panna kandipa return use pannanum illa ah error varum
+		displayServiceDetails();
 		System.out.println("sparePartsCost: "+sparePartsCost);
     	System.out.println("serviceCharge: "+serviceCharge);
 		return serviceCharge;
 	}
 }
-class BikeService extends VehicleService //child class2
+class BikeService extends VehicleService 
 {
 	double sparePartsCost;
-	BikeService(String customername,String vehiclenumber,String servicetype,double sparePartsCost)  //constructor
+	BikeService(String customername,String vehiclenumber,String servicetype,double sparePartsCost) 
 	{
-		super(customername,vehiclenumber,servicetype);  //parent class members ah access panna use pandrom-
-		this.sparePartsCost=sparePartsCost; //this. use panna value confuse agama irukum
+		super(customername,vehiclenumber,servicetype);
+		this.sparePartsCost=sparePartsCost;
 	}
-	double calculateServiceCharge()   //abstract method la override pandrom
+	double calculateServiceCharge()
 	{
-		double serviceCharge = 800+sparePartsCost;   //calculate the charge
-		displayServiceDetails(); //display use panna kandipa return use pannanum illa ah error varum
+		double serviceCharge = 800+sparePartsCost;
+		displayServiceDetails(); 
 		System.out.println("sparePartsCost: "+sparePartsCost);
     	System.out.println("serviceCharge: "+serviceCharge);
     	return serviceCharge;
@@ -57,7 +57,7 @@ class BikeService extends VehicleService //child class2
 }
 public class Project1VehicleServiceSystemUsingAbstraction {
 	public static void main(String[] args) {
-		VehicleService v;  //reference Variable   //Downcasting use pandrom, object use pannalaa 
+		VehicleService v;  
 		v=new CarService("Mythili","TN10AB1234","Normal Service",3500.0);
 		v.calculateServiceCharge();
 		v=new BikeService("Prasanth","TN10AB1234","Oil Service",1200.0);
